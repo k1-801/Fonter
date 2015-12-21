@@ -135,6 +135,7 @@ void MainWindow::on_pushButton_save_clicked()
     QString name = QFileDialog::getSaveFileName(NULL, tr("Save font"), "", tr("Binary font file (*.bfn)"));
     if(!name.isEmpty())
     {
+        ui->widgetGlyph->setGlyph(0);
         if(!name.endsWith(".bfn"))
             name += ".bfn";
         _saveTo(name);
