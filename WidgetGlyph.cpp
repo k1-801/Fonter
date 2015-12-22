@@ -112,3 +112,8 @@ void WidgetGlyph::paintGL()
         glEnd();
     }
 }
+
+Glyph* WidgetGlyph::getGlyph()
+{
+    return glyph;
+}

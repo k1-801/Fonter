@@ -7,6 +7,7 @@ Glyph::Glyph(){}
 Glyph::Glyph(uint32_t c, uint32_t w, uint32_t h)
 {
     _code = c;
+    offset = 0;
     resize(w, h);
 }
 
@@ -45,6 +46,7 @@ QTextStream& operator >> (QTextStream& str, Glyph& g)
 {
     QIODevice* dev = str.device();
     dev->read((char*)(&g._code), 4);
+    dev->read((char*)(&g.offset), 4);
     uint32_t i, j;
     char raw = 0;
     for(i = 0; i < g.height(); ++i)
@@ -62,6 +64,7 @@ QTextStream& operator << (QTextStream& str, const Glyph& g)
 {
     QIODevice* dev = str.device();
     dev->write((char*)(&g._code), 4);
+    dev->write((char*)(&g.offset), 4);
     uint32_t i, j;
     char raw = 0;
     for(i = 0; i < g.height(); ++i)

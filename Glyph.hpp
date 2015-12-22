@@ -14,6 +14,7 @@ class Glyph
         QVector<QVector<bool> > _bitmap;
 
     public:
+        int32_t offset;
         Glyph();
         Glyph(uint32_t, uint32_t, uint32_t);
         void resize(uint32_t, uint32_t);

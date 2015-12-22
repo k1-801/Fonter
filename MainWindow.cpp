@@ -180,6 +180,19 @@ void MainWindow::on_lineEdit_height_editingFinished()
     resizeGlyphs(gw, gh);
 }
 
+void MainWindow::on_lineEdit_offset_editingFinished()
+{
+    QString fit = ui->lineEdit_height->text();
+    QTextStream str(&fit);
+    int32_t off;
+    str >> off;
+    fit.clear();
+    str << off;
+    ui->lineEdit_height->setText(fit);
+
+    ui->widgetGlyph->getGlyph()->offset = off;
+}
+
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
     int i;

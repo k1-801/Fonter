@@ -44,6 +44,7 @@ class MainWindow : public QMainWindow
         void on_lineEdit_symbol_editingFinished();
         void on_lineEdit_width_editingFinished();
         void on_lineEdit_height_editingFinished();
+        void on_lineEdit_offset_editingFinished();
         void on_listWidget_itemClicked(QListWidgetItem *item);
 };
 

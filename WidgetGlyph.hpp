@@ -20,6 +20,7 @@ class WidgetGlyph : public QOpenGLWidget
         void initializeGL();
         void     resizeGL(int, int);
         void      paintGL();
+        Glyph* getGlyph();
 };
 
 #endif // WIDGETGLYPH_HPP
