@@ -19,6 +19,7 @@ class Glyph
         Glyph(uint32_t, uint32_t, uint32_t);
         void resize(uint32_t, uint32_t);
         bool& pixel(uint32_t, uint32_t);
+        bool  check(uint32_t, uint32_t) const;
         uint32_t code() const;
         uint32_t width() const;
         uint32_t height() const;

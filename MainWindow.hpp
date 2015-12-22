@@ -46,6 +46,7 @@ class MainWindow : public QMainWindow
         void on_lineEdit_height_editingFinished();
         void on_lineEdit_offset_editingFinished();
         void on_listWidget_itemClicked(QListWidgetItem *item);
+        void on_plainTextEdit_textChanged();
 };
 
 #endif // MAINWINDOW_HPP

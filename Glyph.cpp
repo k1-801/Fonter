@@ -16,6 +16,11 @@ bool& Glyph::pixel(uint32_t x, uint32_t y)
     return _bitmap[x][y];
 }
 
+bool Glyph::check(uint32_t x, uint32_t y) const
+{
+    return _bitmap[x][y];
+}
+
 void Glyph::resize(uint32_t w, uint32_t h)
 {
     _bitmap.resize(w);

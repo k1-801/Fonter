@@ -86,7 +86,7 @@ void WidgetGlyph::paintGL()
         {
             for(j = 0; j < w; ++j)
             {
-                if(glyph->pixel(j, i))
+                if(glyph->check(j, i))
                 {
                     glVertex2i(startx + (j    ) * k, starty + (i    ) * k);
                     glVertex2i(startx + (j + 1) * k, starty + (i    ) * k);

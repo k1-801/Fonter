@@ -14,13 +14,15 @@ TARGET   = Fonter
 TEMPLATE = app
 
 
-SOURCES  += main.cpp\
-        MainWindow.cpp \
-        WidgetGlyph.cpp \
-    Glyph.cpp
+SOURCES  += main.cpp \
+            Glyph.cpp \
+            MainWindow.cpp \
+            WidgetGlyph.cpp \
+            WidgetPreview.cpp
 
-HEADERS  += MainWindow.hpp \
-        WidgetGlyph.hpp \
-    Glyph.hpp
+HEADERS  += Glyph.hpp \
+            MainWindow.hpp \
+            WidgetGlyph.hpp \
+            WidgetPreview.hpp
 
 FORMS    += MainWindow.ui

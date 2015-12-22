@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
     gw = 8;
     gh = 16;
+    ui->widgetPreview->init(&glyphs);
 }
 
 MainWindow::~MainWindow()
@@ -182,15 +183,17 @@ void MainWindow::on_lineEdit_height_editingFinished()
 
 void MainWindow::on_lineEdit_offset_editingFinished()
 {
-    QString fit = ui->lineEdit_height->text();
+    QString fit = ui->lineEdit_offset->text();
     QTextStream str(&fit);
     int32_t off;
     str >> off;
     fit.clear();
     str << off;
-    ui->lineEdit_height->setText(fit);
+    ui->lineEdit_offset->setText(fit);
 
-    ui->widgetGlyph->getGlyph()->offset = off;
+    Glyph* g = ui->widgetGlyph->getGlyph();
+    if(g)
+        g->offset = off;
 }
 
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
@@ -206,8 +209,17 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
         if(glyphs[i].code() == code)
         {
             ui->widgetGlyph->setGlyph(&glyphs[i]);
+            QString off;
+            QTextStream str(&off);
+            str << glyphs[i].offset;
+            ui->lineEdit_offset->setText(off);
             break;
         }
     }
     ui->widgetGlyph->update();
+}
+
+void MainWindow::on_plainTextEdit_textChanged()
+{
+    ui->widgetPreview->changeText(ui->plainTextEdit->toPlainText());
 }
