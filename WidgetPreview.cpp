@@ -1,10 +1,15 @@
 #include "WidgetPreview.hpp"
 
+// Qt
+#include <QDebug>
+// GL
 #include <GL/glu.h>
 
 WidgetPreview::WidgetPreview(QWidget* parent) : QOpenGLWidget(parent)
 {
     _g = NULL;
+    _for = QColor(192, 192, 192);
+    _back = QColor(0, 0, 0);
 }
 
 void WidgetPreview::ortho()
@@ -39,13 +44,15 @@ void WidgetPreview::paintGL()
     ortho();
     int i, j, k, l, cx = 4, cy = 4, gw, gh;
     uint32_t scan;
+    glClearColor(_back.redF(), _back.greenF(), _back.blueF(), 0);
+    glClear(GL_COLOR_BUFFER_BIT);
     if(_g && !_g->empty())
     {
         gw = _g->at(0).width();
         gh = _g->at(0).height();
 
         glBegin(GL_POINTS);
-        glColor3ub(191, 191, 191);
+        glColor3f(_for.redF(), _for.greenF(), _for.blueF());
         for(i = 0; i < _text.length(); ++i)
         {
             scan = _text[i].unicode();
@@ -92,4 +99,30 @@ void WidgetPreview::changeText(QString text)
 {
     _text = text;
     update();
+}
+
+QColor WidgetPreview::getBackground()
+{
+    return _back;
+}
+
+QColor WidgetPreview::getForeground()
+{
+    return _for;
+}
+
+void WidgetPreview::setBackground(QColor n)
+{
+    if(n.isValid())
+    {
+        _back = n;
+    }
+}
+
+void WidgetPreview::setForeground(QColor n)
+{
+    if(n.isValid())
+    {
+        _for = n;
+    }
 }

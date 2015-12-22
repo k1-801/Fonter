@@ -1,6 +1,7 @@
 #include "MainWindow.hpp"
 #include "ui_MainWindow.h"
 
+#include <QColorDialog>
 #include <QDebug>
 #include <QFile>
 #include <QFileDialog>
@@ -222,4 +223,14 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 void MainWindow::on_plainTextEdit_textChanged()
 {
     ui->widgetPreview->changeText(ui->plainTextEdit->toPlainText());
+}
+
+void MainWindow::on_pushButton_background_clicked()
+{
+    ui->widgetPreview->setBackground(QColorDialog::getColor(ui->widgetPreview->getBackground(), this));
+}
+
+void MainWindow::on_pushButton_foreground_clicked()
+{
+    ui->widgetPreview->setForeground(QColorDialog::getColor(ui->widgetPreview->getForeground(), this));
 }

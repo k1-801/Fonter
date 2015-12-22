@@ -1,4 +1,4 @@
-0123456789 <> /\ [] {} () :; ., +-=
+0123456789 <> /\ [] {} () :; ., +-=  ?!@#$& % " ' ` ^ № ~
 
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 abcdefghijklmnopqrstuvwxyz
@@ -7,4 +7,4 @@ abcdefghijklmnopqrstuvwxyz
 абвгдеёжзиклмнопрстуфхцчшщъыьэюя
 
 Quick brown fox jumps over the lazy dog.
-Съешь ещё этих мягких французских булок, да выпей чаю.
+Съешь ещё этих мягких французских булок, да выпей же чаю.

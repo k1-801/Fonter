@@ -11,6 +11,8 @@ class WidgetPreview : public QOpenGLWidget
 {
     private:
         QVector<Glyph>* _g;
+        QColor _for;
+        QColor _back;
         QString _text;
         int _w, _h;
         void ortho();
@@ -22,6 +24,11 @@ class WidgetPreview : public QOpenGLWidget
         void      paintGL();
         void changeText(QString);
         void init(QVector<Glyph>*);
+
+        QColor getBackground();
+        QColor getForeground();
+        void setBackground(QColor);
+        void setForeground(QColor);
 };
 
 #endif // WIDGETPREVIEW_HPP
