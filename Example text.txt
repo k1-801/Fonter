@@ -1,0 +1,10 @@
+0123456789 <> /\ [] {} () :; ., +-=
+
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+abcdefghijklmnopqrstuvwxyz
+
+АБВГДЕЁЖЗИКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ
+абвгдеёжзиклмнопрстуфхцчшщъыьэюя
+
+Quick brown fox jumps over the lazy dog.
+Съешь ещё этих мягких французских булок, да выпей чаю.
