@@ -11,7 +11,7 @@ Glyph::Glyph(uint32_t c, uint32_t w, uint32_t h)
     resize(w, h);
 }
 
-bool& Glyph::pixel(uint32_t x, uint32_t y)
+uint8_t& Glyph::pixel(uint32_t x, uint32_t y)
 {
     return _bitmap[x][y];
 }
@@ -58,8 +58,8 @@ QTextStream& operator >> (QTextStream& str, Glyph& g)
     {
         for(j = 0; j < g.width(); ++j)
         {
-            if(!(j % 8)) dev->read(&raw, 1);
-            g._bitmap[j][i] = (raw >> (j % 8)) & 1;
+            dev->read(&raw, 1);
+            g._bitmap[j][i] = raw;
         }
     }
     return str;
@@ -76,14 +76,9 @@ QTextStream& operator << (QTextStream& str, const Glyph& g)
     {
         for(j = 0; j < g.width(); ++j)
         {
-            raw |= g._bitmap[j][i] << (j % 8);
-            if((j % 8) == 7)
-            {
-                dev->write(&raw, 1); raw = 0;
-            }
-        }
-        if(j % 8)
+            raw = g._bitmap[j][i] ? 255 : 0;
             dev->write(&raw, 1);
+        }
     }
     return str;
 }

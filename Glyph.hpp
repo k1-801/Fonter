@@ -11,14 +11,14 @@ class Glyph
 {
     private:
         uint32_t _code;
-        QVector<QVector<bool> > _bitmap;
+        QVector<QVector<uint8_t> > _bitmap;
 
     public:
         int32_t offset;
         Glyph();
         Glyph(uint32_t, uint32_t, uint32_t);
         void resize(uint32_t, uint32_t);
-        bool& pixel(uint32_t, uint32_t);
+        uint8_t& pixel(uint32_t, uint32_t);
         bool  check(uint32_t, uint32_t) const;
         uint32_t code() const;
         uint32_t width() const;
